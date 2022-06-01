@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import coastersService from '../../services/coaster.service'
+import coastersService from '../../../services/coaster.service'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import Loader from '../../components/Loader/Loader'
+import Loader from '../../../components/Loader/Loader'
 
 function CoasterDetailsPage() {
 

@@ -1,18 +1,18 @@
 import { Row, Col } from "react-bootstrap"
-import CoasterCard from "../CoasterCard/CoasterCard"
+import FriendsCard from "./FriendsCard/FriendsCard"
 import Loader from "../Loader/Loader"
 
-const CoastersList = ({ coasters }) => {
+const Friends= ({ friends }) => {
 
     return (
-        coasters.length
+        friends.length
             ?
             <Row>
                 {
-                    coasters.map(coaster => {
+                    friends.map(friend => {
                         return (
-                            <Col md={{ span: 4 }} key={coaster._id}>
-                                <CoasterCard {...coaster} />
+                            <Col md={{ span: 4 }} key={friend._id}>
+                                <FriendsCard {...friend} />
                             </Col>
                         )
                     })
@@ -23,4 +23,4 @@ const CoastersList = ({ coasters }) => {
     )
 }
 
-export default CoastersList
+export default Friends;

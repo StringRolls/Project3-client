@@ -1,4 +1,4 @@
 import './Footer.css'
-const Footer = () => <footer>Todos los derechos reservados</footer>
+const Footer = () => <footer>All rights reserved</footer>
 
 export default Footer

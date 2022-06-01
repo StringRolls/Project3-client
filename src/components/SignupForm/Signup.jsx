@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 
-const SignupForm = () => {
+const Signup = () => {
 
     const [signupData, setSignupData] = useState({
         username: '',
@@ -19,7 +19,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(res => {
-                navigate('/inicio-sesion')
+                navigate('/profile/:id')
             })
             .catch(err => console.log(err))
     }
@@ -56,4 +56,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default Signup
