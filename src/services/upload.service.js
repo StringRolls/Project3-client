@@ -4,7 +4,7 @@ class UploadService {
 
     constructor() {
 
-        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/upload` })
+        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/api/upload` })
 
         this.app.interceptors.request.use((config) => {
 

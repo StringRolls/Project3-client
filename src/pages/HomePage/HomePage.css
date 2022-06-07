@@ -1,0 +1,25 @@
+body {
+	background-image: url("../../../public/back.jpg");
+	background-repeat: no-repeat;
+}
+
+
+.cuisinetype {
+    margin-top: 60px;
+    padding: 10px;
+}
+
+.logo1 {
+	height: 6rem;
+	width: 6rem;
+	border-radius: 50%;
+	filter: drop-shadow(10px 10px 4px #760c0c);
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
+    
+}

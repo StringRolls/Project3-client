@@ -1,0 +1,42 @@
+.userImage {
+        border-radius: 50%;
+        width: 8rem;
+        height: 8rem;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        border: solid 2px #FF0000; 
+}
+
+.contentUser {
+    display: flex;
+    align-items: row;
+
+}
+
+.contentEdit {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+    margin-left: 40px;
+
+}
+
+
+
+.editBtn {
+   background-color: #FF0000;
+   color: white;
+   border-radius: 20%;
+   border-style: none;
+}
+
+.title2 {
+    color: #FF0000;
+    margin-top: 20px;
+}
+
+
+

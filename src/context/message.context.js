@@ -6,7 +6,7 @@ function MessageProviderWrapper(props) {
 
     const [show, setShow] = useState(true)
     const [messageInfo, setMessageInfo] = useState({
-        title: 'HOLA HOLA NANANANA',
+        title: 'Bon Appetit!!',
         description: 'Estamos en el contexto'
     })
 
