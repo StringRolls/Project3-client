@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
+import './SignupForm.css'
 
 const SignupForm = () => {
 
@@ -11,17 +11,23 @@ const SignupForm = () => {
         email: ''
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
-
+        
         authService
             .signup(signupData)
             .then(res => {
-                navigate('/inicio-sesion')
+                navigate('/login')
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setErrorMessage(err.response.data.message)
+            })
+        
     }
 
     const handleInputChange = e => {
@@ -32,28 +38,56 @@ const SignupForm = () => {
     const { username, password, email } = signupData
 
     return (
+        <>
+        <form onSubmit={handleSubmit} className="signupForm">
 
-        <Form onSubmit={handleSubmit}>
+            <div className="labelInput">
+                <label className="username" htmlFor="input-username">Name</label>
+                <input 
+                    id="input-username"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={handleInputChange}
+                    required
+                />
+            </div>
 
-            <Form.Group className="mb-3" controlId="username">
-                <Form.Label>Nombre de usuario</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
-            </Form.Group>
+            <div className="labelInput">
+                <label className="email" htmlFor="input-email">Email</label>
+                <input 
+                    id="input-email"
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    required
+                />
+            </div>
 
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />
-            </Form.Group>
+            <div className="labelInput">
+                <label className="password" htmlFor="input-password">Password</label>
+                <input 
+                    id="input-password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    required
+                    minLength="8"
+                />
+            </div>
 
-            <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
-            </Form.Group>
+            <div className="signupBtn">
+                <button className="signUpButton" type="submit">
+                    Sign Up
+                </button>
+            </div>
 
-            <Button variant="dark" type="submit">Registrarme</Button>
-        </Form>
-
+        </form>
+        {errorMessage && <p>{errorMessage}</p>}
+        </>
     )
-}
+} 
 
 export default SignupForm
