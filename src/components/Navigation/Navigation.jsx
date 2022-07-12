@@ -1,10 +1,10 @@
 import "./Navigation.css";
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
 
-const Navigation = () => {
+export default function Navigation() {
   const { user, logOutUser, isLoggedIn } = useContext(AuthContext);
 
   return (
@@ -56,6 +56,4 @@ const Navigation = () => {
       </Container>
     </Navbar>
   );
-};
-
-export default Navigation;
+}

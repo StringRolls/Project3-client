@@ -1,3 +1,4 @@
+import "./SearchFriends.css";
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { Col } from "react-bootstrap";
@@ -6,9 +7,9 @@ import FriendsCard from "../../components/FriendsCard/FriendsCard";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import FriendsService from "../../services/friends.service.js";
 import Loader from "../Loader/Loader";
-import "./SearchFriends.css";
 
-const SearchFriends = ({ search, setSearch, addFriends, setFollowing }) => {
+export default function SearchFriends(props) {
+  const { search, setSearch, addFriends, setFollowing } = props;
   const [friendsData, setFriendsData] = useState(null);
   const [filteredFriends, setFilteredFriends] = useState([]);
   const { isLoggedIn, user } = useContext(AuthContext);
@@ -90,6 +91,4 @@ const SearchFriends = ({ search, setSearch, addFriends, setFollowing }) => {
       )}
     </>
   );
-};
-
-export default SearchFriends;
+}

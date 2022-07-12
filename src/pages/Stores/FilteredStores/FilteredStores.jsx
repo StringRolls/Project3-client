@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from "react-router-dom";
-import StoresService from "./../../../services/store.service.js";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import Loader from "../../../components/Loader/Loader";
-// import LikesBtn from "../../../components/Likes/LikesBtn";
-
 import "./FilteredStores.css";
+import React, { useState, useEffect } from 'react';
+import { useParams} from "react-router-dom";
+import { Container} from "react-bootstrap";
+import StoresService from "./../../../services/store.service.js";
+import Loader from "../../../components/Loader/Loader";
+
+
 import StoreCard from "../../../components/StoreCard/StoreCard.jsx";
 
-function FilteredStores() {
+export default function FilteredStores() {
   const [filteredStores, setStoreFiltered] = useState(null);
 
   const { cuisineType } = useParams();
@@ -24,7 +24,7 @@ function FilteredStores() {
 
   return filteredStores ? (
     <Container>
-      <a href="/home"> <img className="logo13" src="../home.png"></img></a>
+      <a href="/home"> <img className="logo13" src="../home.png" alt="logo"></img></a>
       {filteredStores.map((store) => (
         <StoreCard store={store} />
       ))}
@@ -34,4 +34,3 @@ function FilteredStores() {
   );
 }
 
-export default FilteredStores;

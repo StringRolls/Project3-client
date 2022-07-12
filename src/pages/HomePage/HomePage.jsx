@@ -1,10 +1,9 @@
-//import { Link, AuthContext } from 'react-router-dom'
-import React , { useState, useContext, useEffect } from "react";
-import StoresService from "../../services/store.service.js";
 import "./HomePage.css";
+import React , { useState, useEffect } from "react";
 import StoreCard from "../../components/StoreCard/StoreCard.jsx";
+import StoresService from "../../services/store.service.js";
 
-const HomePage = (props) => {
+export default function HomePage(props) {
   const [cuisines, setFilteredCuisines] = useState(null);
   const [friendsStores, setFriendsStore] = useState(null);
   //const {user} = useContext(AuthContext)
@@ -153,4 +152,4 @@ const HomePage = (props) => {
   );
 
 };
-export default HomePage;
+

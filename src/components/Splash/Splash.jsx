@@ -1,10 +1,9 @@
-import React from "react";
 import "./Splash.css";
+import React from "react";
 
-const Splash = () => {
+export default function Splash() {
   return (
     <>
-      {/*  logo & column 1   */}
       <img className="logo" src="../../../logo.jpg" />
       <br></br>
 
@@ -27,8 +26,6 @@ const Splash = () => {
         </div>
       </div>
 
-      {/*   column 2  */}
-
       <div className="splashColumn1">
         <div className="splashTags1">
           <h4 className="tag5"> RECOMMEND </h4>
@@ -38,11 +35,9 @@ const Splash = () => {
             page and see their favourites{" "}
           </p>
         </div>
-        <img className="splash1" src="/chinese1.png" width={200} height={500}></img>
+        <img className="splash1" src="/chinese1.png" width={200} height={500} alt="chinese-food"></img>
       </div>
-
-      {/*  column 3  */}
-      <img className="splash3" src="./cheese.png" width={300} height={300}></img>
+      <img className="splash3" src="./cheese.png" width={300} height={300} alt="cheese-board"></img>
 
       <div className="splashTags2">
         <h4 className="tag6"> SHARE </h4>
@@ -53,10 +48,9 @@ const Splash = () => {
         </p>
       </div>
       <div  className="splashpeople">
-      <img className="splashpeople" src="./people.png" width={300} height={300}/>
+      <img className="splashpeople" src="./people.png" width={300} height={300} alt="people-sharing-food"/>
       </div>
     </>
   );
 };
 
-export default Splash;

@@ -1,21 +1,6 @@
-import React from 'react';
-//import { Container, Row, Col } from 'react-bootstrap'
-import Loginform from '../../components/LoginForm/Login'
+import React from "react";
+import Loginform from "../../components/LoginForm/Login";
 
-
-const LoginPage = () => {
-
-    return (
-       // <Container>
-          //  <Row>
-               
-                    
-                    <Loginform />
-
-                
-           // </Row>
-       // </Container>
-    )
+export default function LoginPage() {
+  return <Loginform />;
 }
-
-export default LoginPage

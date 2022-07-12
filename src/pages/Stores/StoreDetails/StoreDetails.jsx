@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from "react-router-dom";
+import "./StoreDetails.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Container, Row, Col} from "react-bootstrap";
 import StoresService from "./../../../services/store.service.js";
-import { Container, Row, Col, Button } from "react-bootstrap";
 import Loader from "../../../components/Loader/Loader";
 import LikesBtn from "../../../components/Likes/LikesBtn";
-import "./StoreDetails.css";
 import Accordion from "react-bootstrap/Accordion";
 
-function StoreDetails() {
+export default function StoreDetails() {
   const [storeDetails, setStoreDetails] = useState(null);
 
   const { storeId } = useParams();
@@ -18,12 +18,15 @@ function StoreDetails() {
         setStoreDetails(response.data);
       })
 
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, []);
 
   return storeDetails ? (
     <Container>
-      <a href="/home"> <img className="logo13" src="../home.png"></img></a>
+      <a href="/home">
+        {" "}
+        <img className="logo13" src="../home.png" alt="logo"></img>
+      </a>
       <h1>{storeDetails.storeName}</h1>
       <hr />
       <Row>
@@ -33,14 +36,21 @@ function StoreDetails() {
             src={storeDetails.storeImg}
             alt="store-img"
           />
-          <LikesBtn store={storeDetails}/> 
+          <LikesBtn store={storeDetails} />
           <p>Price range: {storeDetails.priceRange}</p>
           <p>Delivery time: {storeDetails.deliveryTime}</p>
-          <a className="storedetails" href={storeDetails.storeAddress} target="_blank">
+          <a
+            className="storedetails"
+            href={storeDetails.storeAddress}
+            target="_blank"
+            rel="noreferrer"
+          >
             See location
           </a>
           <br></br>
-          <a className="storedetails" href={storeDetails.storePhone}>Phone </a>
+          <a className="storedetails" href={storeDetails.storePhone}>
+            Phone{" "}
+          </a>
           <Accordion>
             <Accordion.Item eventKey="0">
               <Accordion.Header>
@@ -50,11 +60,14 @@ function StoreDetails() {
                 <div className="container">
                   <div className="row">
                     {storeDetails.products.map((product) => (
-                      <div key={product._id} className="card col-6 space-btw-cards">
+                      <div
+                        key={product._id}
+                        className="card col-6 space-btw-cards"
+                      >
                         <img
                           className="card-img-top"
                           src={product.productImg}
-                          alt="Card image cap"
+                          alt="Card-cap"
                         ></img>
                         <div className="card-body">
                           <h5 className="card-title">{product.productName}</h5>
@@ -63,7 +76,9 @@ function StoreDetails() {
                           </p>
                         </div>
 
-                        <div className="card-footer">{product.productPrice}</div>
+                        <div className="card-footer">
+                          {product.productPrice}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -99,7 +114,12 @@ function StoreDetails() {
               <Accordion.Header>
                 <strong>Delivery options</strong>
               </Accordion.Header>
-              <Accordion.Body dangerouslySetInnerHTML={{__html: storeDetails.deliveryOptions}} />
+              <Accordion.Body
+                dangerouslySetInnerHTML={{
+                  __html: storeDetails.deliveryOptions,
+                }}
+                target="_blank"
+              />
             </Accordion.Item>
           </Accordion>
         </Col>
@@ -109,5 +129,3 @@ function StoreDetails() {
     <Loader />
   );
 }
-
-export default StoreDetails;

@@ -1,12 +1,11 @@
+import "./Signup.css";
 import React, { useContext, useState } from "react";
-import { Form } from "react-bootstrap";
-import authService from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { MessageContext } from "../../context/message.context";
-import "./Signup.css"
+import authService from "../../services/auth.service";
 
-const Signup = () => {
+export default function Signup() {
   const [signupData, setSignupData] = useState({
     username: "",
     password: "",
@@ -29,7 +28,7 @@ const Signup = () => {
         showMessage("Welcome!! Find your new favourite restaurant!!");
         navigate("/home");
       })
-      .catch((error) =>(error));
+      .catch((error) => error);
   };
 
   const handleInputChange = (e) => {
@@ -44,7 +43,9 @@ const Signup = () => {
       <div className="back">
         <div>
           {" "}
-         <a href="/"><img className="logo1" src="/logo.jpg" /></a> 
+          <a href="/">
+            <img className="logo1" src="/logo.jpg" alt="app-logo" />
+          </a>
         </div>
 
         <form className="formLogging" onSubmit={handleSubmit}>
@@ -91,6 +92,4 @@ const Signup = () => {
       </div>
     </>
   );
-};
-
-export default Signup;
+}

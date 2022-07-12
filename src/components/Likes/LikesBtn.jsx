@@ -1,10 +1,9 @@
-import React from "react";
-import { useState, useEffect, useContext } from "react";
-import StoresService from "../../services/store.service.js";
 import "./LikesBtn.css";
+import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context.js";
+import StoresService from "../../services/store.service.js";
 
-function LikesBtn({ store }) {
+export default function LikesBtn({ store }) {
   const [likes, setLikes] = useState(null);
   const { user } = useContext(AuthContext);
   const [isLiked, setIsLiked] = useState(false);
@@ -28,21 +27,17 @@ function LikesBtn({ store }) {
   return (
     <>
       <div>
-       
-   
-          <button className="heartbutton" onClick={handleOnChange}>
-            <div>
-              <img className="heartbutton1"
-                src="../heart.png"
-                alt="like button"
-              /> 
-            </div>
-            <p className="likes">{likes?.length} Likes </p> 
-          </button>
-        </div>
-      
+        <button className="heartbutton" onClick={handleOnChange}>
+          <div>
+            <img
+              className="heartbutton1"
+              src="../heart.png"
+              alt="like button"
+            />
+          </div>
+          <p className="likes">{likes?.length} Likes </p>
+        </button>
+      </div>
     </>
   );
 }
-
-export default LikesBtn;

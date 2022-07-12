@@ -1,51 +1,50 @@
-import axios from 'axios';
+import axios from "axios";
 
 class StoreService {
+  constructor() {
+    this.app = axios.create({
+      baseURL: `https://ironhack-sharelicious-server.herokuapp.com`,
+    });
 
-    constructor (){
-        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}` })
+    this.app.interceptors.request.use((config) => {
+      const storedToken = localStorage.getItem("authToken");
 
-        this.app.interceptors.request.use((config) => {
+      if (storedToken) {
+        config.headers = { Authorization: `Bearer ${storedToken}` };
+      }
 
-            const storedToken = localStorage.getItem("authToken");
+      return config;
+    });
+  }
 
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
+  getStoreDetails = (storeId) => {
+    return this.app.get(`/api/store/${storeId}`);
+  };
 
-            return config
-        })
-    }
+  saveComment = (storeId) => {
+    return this.app.post(`/api/store/${storeId}`);
+  };
 
-    getStoreDetails = (storeId) => {
-        return this.app.get(`/api/store/${storeId}`)
-    }
+  // this is to get the stores the user liked in order to render in the user profile
+  getStoresLiked = (storeId) => {
+    return this.app.post(`/api/like/${storeId}`);
+  };
 
-    saveComment = (storeId) => {
-        return this.app.post(`/api/store/${storeId}`)
-       }
+  // To get the liked stores filtered by user's friends
+  getStoresFriends = () => {
+    //return this.app.get('/api/store/friends-store')
+    return this.app.get("/api/like/friendsStores");
+  };
 
-    // this is to get the stores the user liked in order to render in the user profile
-    getStoresLiked = (storeId) => {
-        return this.app.post(`/api/like/${storeId}`)
-    }
-    
-       // To get the liked stores filtered by user's friends
-    getStoresFriends = () => {
-        //return this.app.get('/api/store/friends-store')
-        return this.app.get('/api/like/friendsStores')
-    }
+  // To get all the cuisine types
+  getAllCuisines = (type) => {
+    return this.app.get(`/api/store/cuisine-types`);
+  };
 
-    // To get all the cuisine types
-    getAllCuisines = (type) => {
-        return this.app.get(`/api/store/cuisine-types`)
-    }
- 
-    // To get the stores filtered by cuisine
-    getStoresByCuisine =(cuisineType) =>{
-        return this.app.get(`/api/store/by-cuisine-type/${cuisineType}`)
-    }
-    
+  // To get the stores filtered by cuisine
+  getStoresByCuisine = (cuisineType) => {
+    return this.app.get(`/api/store/by-cuisine-type/${cuisineType}`);
+  };
 }
 
 const StoresService = new StoreService();

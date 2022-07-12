@@ -1,18 +1,17 @@
+import "./Profile.css";
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { AuthContext } from "../../../context/auth.context.js";
-import { useParams } from "react-router-dom";
-import userService from "../../../services/user.service";
 import Loader from "../../../components/Loader/Loader";
 import StoreCard from "../../../components/StoreCard/StoreCard";
-import "./Profile.css";
+import userService from "../../../services/user.service";
 
-
-const ProfilePage = () => {
+export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
   const [isUser, setIsUser] = useState(null);
   const { isLoggedIn, user } = useContext(AuthContext);
-  
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,18 +22,17 @@ const ProfilePage = () => {
       })
       .catch((error) => error);
   }, [id]);
-  
+
   useEffect(() => {
-    if(profile && user) {
+    if (profile && user) {
       if (profile._id === user._id) setIsUser(true);
     }
-  }, [profile]); 
+  }, [profile]);
 
   return (
     <>
-
       {isLoggedIn &&
-        ( profile  ? (
+        (profile ? (
           <Container>
             <div className="contentUser">
               <img
@@ -43,8 +41,11 @@ const ProfilePage = () => {
                 alt={profile.userImg}
               />
 
-<a href="/home"> <img className="logo12" src="../home.png" /></a>  
- 
+              <a href="/home">
+                {" "}
+                <img className="logo12" src="../home.png" alt="home-logo" />
+              </a>
+
               <div className="contentEdit">
                 <h5 className="userName"> {profile.username}</h5>
                 <br></br>
@@ -53,10 +54,11 @@ const ProfilePage = () => {
                   <p className="userName1"> {profile.tagLine}</p>
                   <br></br>
 
-                  {isUser && 
-                  <a href={`/profile-edit/${profile._id}`}>
-                    <button className="editBtn"> edit</button>
-                  </a>}
+                  {isUser && (
+                    <a href={`/profile-edit/${profile._id}`}>
+                      <button className="editBtn"> edit</button>
+                    </a>
+                  )}
                 </div>
               </div>
               <h3 className="title2"> Your Favourites </h3>
@@ -77,14 +79,15 @@ const ProfilePage = () => {
                     src="https://flyclipart.com/thumb2/arrow-to-the-left-arrow-png-icon-free-download-510843.png"
                     width={15}
                     height={15}
+                    alt="logo"
                   />{" "}
                 </a>
               </a>
             </div>
           </Container>
         ) : (
-        <Loader />
-          ))}
+          <Loader />
+        ))}
       {!isLoggedIn && (
         <>
           <Loader />
@@ -92,6 +95,4 @@ const ProfilePage = () => {
       )}
     </>
   );
-};
-
-export default ProfilePage;
+}
