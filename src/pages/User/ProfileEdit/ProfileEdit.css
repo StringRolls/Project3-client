@@ -1,0 +1,111 @@
+form {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+    margin-top: 20px;
+
+}
+
+.logo6 {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+	margin-left: 110px; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    filter: drop-shadow(5px 5px 4px #db2727);
+    
+}
+
+.text2 {
+        color: #db2727;
+        margin-top: 20px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: -10px;
+     
+}
+
+.background2 {
+    border: 0.5px solid #db2727 ; 
+    padding: 20px;
+    padding-bottom: 60px;
+    margin-top: 20px;
+    width: 350px;
+    margin: 20px; 
+
+}
+
+input {
+    padding: 10px;
+    width: 300px;
+    border-radius : 20px; 
+    border-style: none;
+    color: grey ;
+    background-color: white;
+   
+}
+
+.inputPicture {
+    padding: 10px;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    color: white  ;
+    border-radius: 20px;
+    border-style: none;
+    padding: 10px;
+    background-color: #422e2e;
+    font-weight: 600;
+}
+
+input[type="file"] {
+    color: black  ;
+    margin-left: -15px;
+    
+}
+
+.button2 {
+    color: #471e1e;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 20px ;
+    margin-left: 6px;
+    padding: 10px;
+    border-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 700;
+    border: 1px solid #471e1e;
+}
+
+
+
+
+.logo11 {
+  
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-end;
+align-items: baseline;
+align-content: stretch;        
+margin-left: 330px; 
+margin-top: -40px; 
+}

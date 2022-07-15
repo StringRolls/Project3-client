@@ -1,8 +1,8 @@
-import AppRoutes from '../routes/AppRoutes';
-import './App.css'
-import Footer from './Footer/Footer';
-import Navigation from './Navigation/Navigation';
-import UserMessage from './UserMessage/UserMessage';
+import "./App.css";
+import React from "react";
+import AppRoutes from "../routes/AppRoutes";
+import Footer from "./Footer/Footer";
+import Navigation from "./Navigation/Navigation";
 
 const App = () => {
   return (
@@ -10,9 +10,8 @@ const App = () => {
       <Navigation />
       <AppRoutes />
       <Footer />
-      <UserMessage />
     </>
   );
-}
+};
 
-export default App
+export default App;
