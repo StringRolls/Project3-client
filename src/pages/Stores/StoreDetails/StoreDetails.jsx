@@ -5,6 +5,7 @@ import { Container, Row, Col} from "react-bootstrap";
 import StoresService from "./../../../services/store.service.js";
 import Loader from "../../../components/Loader/Loader";
 import LikesBtn from "../../../components/Likes/LikesBtn";
+import Comments from "../../../components/Comments/Comments"
 import Accordion from "react-bootstrap/Accordion";
 
 export default function StoreDetails() {
@@ -91,7 +92,7 @@ export default function StoreDetails() {
               </Accordion.Header>
               <Accordion.Body>
                 <div className="container">
-                  {storeDetails.comments.map((comment) => (
+                  {/* {storeDetails.comments.map((comment) => (
                     <div className="row">
                       <div className="col-2 ">
                         <img
@@ -106,7 +107,8 @@ export default function StoreDetails() {
                         <p className="comment">{comment.message}</p>
                       </div>
                     </div>
-                  ))}
+                  ))} */}
+                  <Comments store={storeDetails} />
                 </div>
               </Accordion.Body>
             </Accordion.Item>
