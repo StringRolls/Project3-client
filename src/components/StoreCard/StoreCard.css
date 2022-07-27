@@ -1,0 +1,8 @@
+.StoreCard {
+    margin-bottom: 40px;
+}
+
+.StoreCard img {
+    height: 200px;
+    object-fit: cover;
+}

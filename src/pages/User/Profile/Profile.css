@@ -1,0 +1,66 @@
+.userImage {
+        border-radius: 50%;
+        width: 8rem;
+        height: 8rem;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        margin-top: 30px;
+}
+
+.contentUser {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+}
+
+
+.userName {
+    font-weight: 200;
+    color: #760c0c;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin-top: 20px;
+    
+
+}
+
+
+.editBtn {
+    color: #760c0c;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 20px ;
+    margin-left: 6px;
+    padding: 10px;
+    border-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 700;
+}
+
+.title2 {
+    color: #760c0c;
+    margin-top: 20px;
+}
+
+button {
+    color: #760c0c;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 20px ;
+    margin-left: 6px;
+    padding: 10px;
+    border-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 500;
+}
+
+

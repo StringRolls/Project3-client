@@ -1,4 +1,12 @@
-import './Footer.css'
-const Footer = () => <footer>Todos los derechos reservados</footer>
+import React from "react";
+import "./Footer.css";
 
-export default Footer
+const Footer = () => {
+  return (
+    <>
+      <footer> All rights served </footer>
+    </>
+  );
+};
+
+export default Footer;

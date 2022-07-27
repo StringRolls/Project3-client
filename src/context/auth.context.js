@@ -33,6 +33,7 @@ function AuthProviderWrapper(props) {
             authService
                 .verify(storedToken)
                 .then(({ data }) => {
+                    console.log("This is data", data)
                     const user = data
                     setIsLoggedIn(true);
                     setIsLoading(false);
