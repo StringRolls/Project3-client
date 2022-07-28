@@ -1,9 +1,9 @@
 import "./LikesBtn.css";
 import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context/auth.context.js";
-import StoresService from "../../services/store.service.js";
+/* import { AuthContext } from "../../context/auth.context.js";
+import StoresService from "../../services/store.service.js"; */
 
-export default function LikesBtn({ store }) {
+/* export default function LikesBtn({ store }) {
   const [likes, setLikes] = useState(null);
   const { user } = useContext(AuthContext);
   const [isLiked, setIsLiked] = useState(false);
@@ -40,4 +40,12 @@ export default function LikesBtn({ store }) {
       </div>
     </>
   );
+} */
+
+export default function LikesBtn() {
+  return(
+    <div>
+      <h1>HOLA</h1>
+    </div>
+  )
 }
