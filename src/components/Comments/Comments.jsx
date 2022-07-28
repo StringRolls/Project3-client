@@ -7,31 +7,47 @@ import StoreService from "./../../services/store.service";
 export default function Comments (props) {
     const {store} = props;
     
-    const [comment, setComment] = useState([]);
+    const [message, setMessage] = useState("");
+    const [owner, setOwner] = useState("")
+
     const navigate = useNavigate();
 
 
 
-    const handleComment = (e) =>{
+    /* const handleComment = (e) =>{
         e.preventDefault();
+
 
         StoreService.saveComment(store._id)
         .then ((response) => {
-            setComment(response.data)
+            setMessage(response.data)
+            setOwner(response.user._id)
             navigate(`/api/store/${store._id}`)
         })
         .catch((error) => error)
-    }
+    } */
 
     return (
         <div>
-         <Form onSubmit={handleComment}>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Leave your comment here</Form.Label>
-        <Form.Control as="textarea" rows={3} />
-        <Button type="submit">Post</Button>
-      </Form.Group>
-        </Form>
+          <form>
+        <label>Comment</label>
+        <input
+          type="text"
+          name="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+ 
+        <label>{owner}</label>
+        <textarea
+          type="text"
+          name="owner"
+          value={owner}
+          onChange={(e) => setOwner(e.target.value)}
+        />
+ 
+        <button type="submit">Submit</button>
+      </form>
 
         </div>
     )
