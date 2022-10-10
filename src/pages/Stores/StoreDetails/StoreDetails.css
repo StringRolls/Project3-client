@@ -1,0 +1,38 @@
+.space-btw-cards {
+  padding: 20px;
+}
+
+.owner-img-size {
+  width: 150%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.store-banner {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; 
+  border-radius: 20px;
+}
+
+body {
+  height: 900px;
+}
+
+p {
+  font-weight: 200;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white !important;
+  background-color: rgb(255, 7, 7) !important; 
+}
+
+.delivery {
+  color: black 
+}
+
+.storedetails {
+  color: red ; 
+}
+

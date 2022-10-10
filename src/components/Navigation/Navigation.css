@@ -1,3 +1,12 @@
 .navbar {
-    margin-bottom: 40px;
+    margin-bottom: 5px;
+    
+}
+
+.logoutLink {
+    text-decoration: none;
+}
+
+.navbar-toggler {
+   
 }

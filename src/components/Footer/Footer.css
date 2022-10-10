@@ -1,10 +1,81 @@
-footer {
-    background-color: #212429;
-    color: white;
-    font-size: .7em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 3px;
-    text-align: center;
+
+ footer {
+    
+    bottom:0;
+    width:100%;
+    padding-top: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+ }
+
+ .developers  {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content:space-between;
+	align-items:center;
+	align-content: center;
+ }
+
+ .developers1  {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 20px; 
+	margin-bottom: -18px;
+	
+ }
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	
+    padding: 70px 0;
+}
+
+.linkedin {
+	height: 20px;
+	width: 20px;
+	border-radius: 50px;
+}
+
+.tagfooter {
+	font-size: 10px;
+	margin-bottom: -1px;
+}
+
+.lineFooter {
+	color: #760c0c;
+	width: 350px;
+	
+}
+
+.title {
+	color: #760c0c;
+	font-weight: 300;
+	font-size: 10px;
+	margin-bottom: -1px;
+	margin-left: 10px;
+	margin-top: -10px;
+}
+.nameDeveloper {
+	font-size: 12px;
 }

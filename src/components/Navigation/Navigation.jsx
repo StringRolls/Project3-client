@@ -1,42 +1,59 @@
-import './Navigation.css'
-import { Navbar, Container, Nav } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../../context/auth.context'
+import "./Navigation.css";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { AuthContext } from "../../context/auth.context";
 
-const Navigation = () => {
+export default function Navigation() {
+  const { user, logOutUser, isLoggedIn } = useContext(AuthContext);
 
-    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+  return (
+    <Navbar expand="lg">
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {user && (
+              <>
+                <NavLink to={`/profile/${user._id}`} className="nav-link">
+                  Profile
+                </NavLink>
+                <NavLink to="/friends" className="nav-link">
+                  Friends
+                </NavLink>
 
-    return (
-        <Navbar bg="dark" variant="dark" expand="lg">
-            <Container>
-                <Navbar.Brand href="#home">Coasters app!</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavLink to="/" className="nav-link">Inicio</NavLink>
-                        <NavLink to="/galeria" className="nav-link">Galería</NavLink>
-
-                        {
-                            isLoggedIn
-                                ?
-                                <div className="nav-link" onClick={logOutUser}>Cerrar sesión</div>
-                                :
-                                <>
-                                    <NavLink to="/registro" className="nav-link">Registro</NavLink>
-                                    <NavLink to="/inicio-sesion" className="nav-link">Iniciar sesión</NavLink>
-                                </>
-                        }
-
-                        {
-                            user && <NavLink to="/perfil" className="nav-link justify-content-end">Hola, {user.username}</NavLink>
-                        }
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-    )
+                {isLoggedIn ? (
+                  <a className="logoutLink" href="/">
+                    {" "}
+                    <div className="nav-link" onClick={logOutUser}>
+                      Logout
+                    </div>
+                  </a>
+                ) : (
+                  <>
+                    <NavLink to="/signup" className="nav-link">
+                      Signup
+                    </NavLink>
+                    <NavLink to="/login" className="nav-link">
+                      Login
+                    </NavLink>
+                  </>
+                )}
+              </>
+            )}
+            {!user && (
+              <>
+                <NavLink to="/login" className="nav-link">
+                  Login
+                </NavLink>
+                <NavLink to="/signup" className="nav-link">
+                  Signup
+                </NavLink>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
-
-export default Navigation
